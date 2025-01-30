@@ -1,30 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   create_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/28 14:03:50 by abouclie          #+#    #+#             */
-/*   Updated: 2025/01/30 14:41:10 by abouclie         ###   ########.fr       */
+/*   Created: 2025/01/30 15:23:41 by abouclie          #+#    #+#             */
+/*   Updated: 2025/01/30 16:04:53 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+static void add_node(t_stack **stack, int n)
 {
-	t_stack	stack_a;
-	t_stack	stack_b;
+	t_stack	*new_node;
+	t_stack	*last;
 
-	if (argc < 2)
+	new_node = malloc(sizeof(t_stack));
+	new_node->value = n;
+	new_node->next = NULL;
+
+	if (*stack == NULL)
+		*stack = new_node;
+	else
 	{
-		ft_putstr("Error\n");
-		return (0);
+		last = get_last_stack(*stack);
+		last->next = new_node;
 	}
-	if (!is_correct_arg(argv))
+}
+
+void	stack_creator(t_stack **a, char **argv)
+{
+	int	i;
+	int	num;
+
+	i = 1;
+	while (argv[i])
 	{
-		ft_putstr("Error\n");
-		return (0);
+		num = ft_atoi(argv[i]);
+		add_node(a, num);
+		i++;
 	}
 }
