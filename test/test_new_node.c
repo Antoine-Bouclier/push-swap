@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:00:25 by abouclie          #+#    #+#             */
-/*   Updated: 2025/01/30 16:02:57 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:36:30 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ int main(int argc, char **argv) {
         printf("Usage: %s <number1> <number2> ...\n", argv[0]);
         return 1;
     }
-
+	if (!is_correct_arg(argv))
+		return (ft_putstr("Error\n"), 0);
     // Créer la pile à partir des arguments
     stack_creator(&stack_a, argv);
 
@@ -55,3 +56,5 @@ int main(int argc, char **argv) {
 
     return 0;
 }
+
+// cc -I./includes test/test_new_node.c src/create_stack.c src/utils.c src/verif_input.c src/verif_input_utils.c
