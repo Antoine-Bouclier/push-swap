@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:44:36 by abouclie          #+#    #+#             */
-/*   Updated: 2025/01/29 13:45:56 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/01/30 09:26:18 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,32 @@ t_stack	*get_last_stack(t_stack *stack)
 		last = last->next;
 	}
 	return (last);
+}
+
+t_stack	*get_second_to_last_stack(t_stack *stack)
+{
+	t_stack	*second_to_last;
+
+	if (!stack)
+		return (NULL);
+	second_to_last = stack;
+	while (second_to_last->next->next)
+	{
+		second_to_last = second_to_last->next;
+	}
+	return (second_to_last);
+}
+
+void	ft_putstr(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i])
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
 }
