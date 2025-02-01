@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 13:35:17 by abouclie          #+#    #+#             */
-/*   Updated: 2025/01/30 09:25:48 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/01 18:08:50 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ typedef struct s_stack
 
 t_stack	*get_last_stack(t_stack *stack);
 t_stack	*get_second_to_last_stack(t_stack *stack);
-void	ft_putstr_fd(char *s, int fd);
+void	ft_putstr(char *s);
+int		ft_atoi(const char *nptr);
 
 void	ss(t_stack **stack_a, t_stack **stack_b);
 void	sb(t_stack **stack_b);
@@ -42,5 +43,15 @@ void	ra(t_stack **stack_a);
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
+
+void	stack_creator(t_stack **a, char **argv);
+void	index_stack(t_stack *stack);
+t_stack	*get_biggest(t_stack *stack_a);
+int	get_max_digits(t_stack *stack);
+static int	stack_size(t_stack *stack);
+
+int	ft_isdigit(int c);
+int	ft_strcmp(const char *s1, const char *s2);
+int	is_correct_arg(char **argv);
 
 #endif

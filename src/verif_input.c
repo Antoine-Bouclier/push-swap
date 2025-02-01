@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   verif_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 09:57:54 by abouclie          #+#    #+#             */
-/*   Updated: 2025/01/30 12:49:46 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/01 18:14:17 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static int	arg_is_number(char *argv)
 {
@@ -49,14 +48,37 @@ static int	verif_duplicates(char **argv)
 	return (1);
 }
 
-int	is_correct_arg(char **argv)
+static int	verif_duplicates_zero(char *argv)
 {
 	int	i;
 
+	i = 0;
+	while (argv[i])
+	{
+		if (argv[i] == '-' || argv[i] == '+')
+			i++;
+		if (argv[i] == '0')
+			i++;
+		else
+			return (0);
+	}
+	return (1);
+}
+
+int	is_correct_arg(char **argv)
+{
+	int	i;
+	int	nb_zero;
+
 	i = 1;
+	nb_zero = 0;
 	while (argv[i])
 	{
 		if (!arg_is_number(argv[i]))
+			return (0);
+		if (verif_duplicates_zero(argv[i]))
+			nb_zero++;
+		if (nb_zero > 1)
 			return (0);
 		i++;
 	}
@@ -64,3 +86,4 @@ int	is_correct_arg(char **argv)
 		return (0);
 	return (1);
 }
+
