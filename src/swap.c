@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:58:56 by abouclie          #+#    #+#             */
-/*   Updated: 2025/01/29 12:06:00 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/04 09:45:43 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,18 @@ void	swap(t_stack *stack)
 void	sa(t_stack **stack_a)
 {
 	swap(*stack_a);
+	ft_putstr("sa\n");
 }
 
 void	sb(t_stack **stack_b)
 {
 	swap(*stack_b);
+	ft_putstr("sb\n");
 }
 
 void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	swap(*stack_a);
 	swap(*stack_b);
+	ft_putstr("ss\n");
 }

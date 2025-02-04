@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   verif_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
+/*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 09:57:54 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/01 18:14:17 by student          ###   ########.fr       */
+/*   Updated: 2025/02/04 09:28:48 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 static int	arg_is_number(char *argv)
 {
@@ -86,4 +87,3 @@ int	is_correct_arg(char **argv)
 		return (0);
 	return (1);
 }
-

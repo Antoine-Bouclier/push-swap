@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:54:48 by abouclie          #+#    #+#             */
-/*   Updated: 2025/01/30 09:23:59 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/04 09:44:45 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,18 @@ void	reverse_rotate(t_stack **stack)
 void	rra(t_stack **stack_a)
 {
 	reverse_rotate(stack_a);
+	ft_putstr("rra\n");
 }
 
 void	rrb(t_stack **stack_b)
 {
 	reverse_rotate(stack_b);
+	ft_putstr("rrb\n");
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
+	ft_putstr("rrr\n");
 }

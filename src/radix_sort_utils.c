@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   radix_sort_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/29 12:06:35 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/04 09:44:51 by abouclie         ###   ########.fr       */
+/*   Created: 2025/02/04 12:52:50 by abouclie          #+#    #+#             */
+/*   Updated: 2025/02/04 12:57:43 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_stack **src, t_stack **dest)
+int	get_digit(int number, int digit_position)
 {
-	t_stack	*tmp;
-
-	tmp = (*src)->next;
-	(*src)->next = *dest;
-	*dest = *src;
-	*src = tmp;
+	int divisor;
+	
+	divisor = 1;
+	while (digit_position > 0) {
+		divisor *= 10;
+		digit_position--;
+	}
+	return ((number / divisor) % 10);
 }
 
-void	pa(t_stack **stack_a, t_stack **stack_b)
+static int	stack_size(t_stack *stack)
 {
-	push(stack_b, stack_a);
-	ft_putstr("pa\n");
-}
+	int count;
+	t_stack *current;
 
-void	pb(t_stack **stack_b, t_stack **stack_a)
-{
-	push(stack_a, stack_b);
-	ft_putstr("pb\n");
+	count = 0;
+	current = stack;
+	while (current != NULL)
+	{
+		current = current->next;
+		count++;
+	}
+	return (count);
 }
