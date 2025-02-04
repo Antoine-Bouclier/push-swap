@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:03:50 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/04 11:30:26 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:40:03 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	if (stack_a == NULL)
 		return (ft_putstr("Error, empty stack!"), 0);
 	index_stack(stack_a);
-	sort_stack(&stack_a, &stack_b);
+	radix_sort(&stack_a, &stack_b);
 	return (1);
 }
 
