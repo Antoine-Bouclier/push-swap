@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:52:50 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/04 16:42:18 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/05 09:56:40 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,6 @@ int	get_digit(int number, int digit_position)
 		digit_position--;
 	}
 	return ((number / divisor) % 10);
-}
-
-int	stack_size(t_stack *stack)
-{
-	int count;
-	t_stack *current;
-
-	count = 0;
-	current = stack;
-	while (current != NULL)
-	{
-		current = current->next;
-		count++;
-	}
-	return (count);
 }
 
 int	ft_abs(int	min_value)
@@ -65,6 +50,9 @@ int	normalize_values(t_stack *stack)
 	}
 	current = stack;
 	while (current)
+	{
 		current->value += ft_abs(min_value);
+		current = current->next;
+	}
 	return (min_value);
 }

@@ -6,39 +6,11 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:44:36 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/04 09:42:31 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/05 10:13:59 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_stack	*get_last_stack(t_stack *stack)
-{
-	t_stack	*last;
-
-	if (!stack)
-		return (NULL);
-	last = stack;
-	while (last->next)
-	{
-		last = last->next;
-	}
-	return (last);
-}
-
-t_stack	*get_second_to_last_stack(t_stack *stack)
-{
-	t_stack	*second_to_last;
-
-	if (!stack)
-		return (NULL);
-	second_to_last = stack;
-	while (second_to_last->next->next)
-	{
-		second_to_last = second_to_last->next;
-	}
-	return (second_to_last);
-}
 
 void	ft_putstr(char *s)
 {
@@ -81,4 +53,13 @@ int	ft_atoi(const char *nptr)
 		i++;
 	}
 	return ((int)result * sign);
+}
+void	exit_error(t_stack **stack_a, t_stack **stack_b)
+{
+	if (stack_a == NULL || *stack_a != NULL)
+		free_stack(stack_a);
+	if (stack_b == NULL || *stack_b != NULL)
+		free_stack(stack_b);
+	write(2, "Error\n", 6);
+	exit (1);
 }

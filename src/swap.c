@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:58:56 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/04 09:45:43 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/05 10:17:05 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@ void	swap(t_stack *stack)
 	tmp = stack->value;
 	stack->value = stack->next->value;
 	stack->next->value = tmp;
-	tmp = stack->index;
-	stack->index = stack->next->index;
-	stack->next->index = tmp;
 }
 
 void	sa(t_stack **stack_a)
