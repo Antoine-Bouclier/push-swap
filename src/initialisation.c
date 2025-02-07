@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 09:48:56 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/05 13:13:01 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/07 08:01:37 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,26 +36,34 @@ t_stack	*fill_stack_values(int argc, char **argv)
 	return (stack_a);
 }
 
-void	index_stack(t_stack *stack)
+void index_stack(t_stack *stack)
 {
-	t_stack	*current;
-	t_stack	*compare;
-	int	index;
+	t_stack *current;
+	t_stack *compare;
+	int index;
+	int size;
+	int i;
 
 	if (stack == NULL)
-		return ;
+		return;
+	size = stack_size(stack);
+	current = stack->next;
 	current = stack;
-	while (current)
+	i = 0;
+	while (i < size)
 	{
 		index = 0;
 		compare = stack;
-		while (compare)
+		int j = 0;
+		while (j < size)
 		{
 			if (current->value > compare->value)
 				index++;
 			compare = compare->next;
+			j++;
 		}
 		current->index = index;
 		current = current->next;
+		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 13:35:17 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/05 13:13:28 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/07 07:34:52 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_stack
 	int	value;
 	int	index;
 	struct s_stack	*next;
+	struct s_stack	*precedent;
 }	t_stack;
 
 /* Instruction */

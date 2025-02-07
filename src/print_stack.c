@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 08:28:46 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/05 13:16:55 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/07 11:00:51 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ void print_stacks(t_stack *stack_a, t_stack *stack_b)
 {
     t_stack *temp_a = stack_a;
     t_stack *temp_b = stack_b;
+    int     first_pass = 1;
     
     printf("Stack A | Stack B\n");
     printf("--------|--------\n");
     
-    while (temp_a || temp_b)
+    while (temp_a != stack_a || temp_b != stack_b || first_pass)
     {
         if (temp_a)
         {
@@ -39,6 +40,7 @@ void print_stacks(t_stack *stack_a, t_stack *stack_b)
         }
         
         printf("\n");
+        first_pass = 0;
     }
     printf("\n");
 }

@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:30:53 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/05 12:24:01 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:57:58 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,19 @@ t_stack	*get_biggest(t_stack *stack_a)
 {
 	t_stack	*biggest;
 	t_stack	*current;
+	int		first_pass;
 	
+	first_pass = 1;
 	if (!stack_a)
 		return (NULL);
 	biggest = stack_a;
 	current = stack_a->next;
-	while (current)
+	while (current != stack_a || first_pass)
 	{
 		if (current->value > biggest->value)
 			biggest = current;
 		current = current->next;
+		first_pass = 0;
 	}
 	return (biggest);
 }
