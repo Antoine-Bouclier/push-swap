@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:44:36 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/07 07:50:13 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/11 09:40:44 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	ft_atoi(const char *nptr)
 	}
 	return ((int)result * sign);
 }
+
 void	exit_error(t_stack **stack_a, t_stack **stack_b)
 {
 	if (stack_a == NULL || *stack_a != NULL)

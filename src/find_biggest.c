@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:30:53 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/07 10:57:58 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/11 08:02:32 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_stack	*get_biggest(t_stack *stack_a)
 	t_stack	*biggest;
 	t_stack	*current;
 	int		first_pass;
-	
+
 	first_pass = 1;
 	if (!stack_a)
 		return (NULL);
@@ -35,7 +35,7 @@ t_stack	*get_biggest(t_stack *stack_a)
 
 int	get_max_digits(t_stack *stack)
 {
-	t_stack *biggest;
+	t_stack	*biggest;
 	int		digits;
 	int		max;
 
@@ -49,5 +49,5 @@ int	get_max_digits(t_stack *stack)
 		digits++;
 		max /= 10;
 	}
-	return digits;
+	return (digits);
 }

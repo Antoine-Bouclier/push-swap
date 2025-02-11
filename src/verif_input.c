@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 09:57:54 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/04 09:28:48 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/11 09:41:13 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	verif_duplicates(char **argv)
 	int	j;
 
 	i = 1;
-	while(argv[i])
+	while (argv[i])
 	{
 		j = i + 1;
 		while (argv[j])

@@ -6,18 +6,18 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 12:06:35 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/07 10:47:54 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/11 09:36:45 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push(t_stack **src, t_stack **dest)
+static t_stack	*pop_from_src(t_stack **src)
 {
 	t_stack	*tmp;
 
 	if (*src == NULL)
-		return;
+		return (NULL);
 	tmp = *src;
 	*src = (*src)->next;
 	if (*src != tmp)
@@ -27,6 +27,11 @@ void push(t_stack **src, t_stack **dest)
 	}
 	else
 		*src = NULL;
+	return (tmp);
+}
+
+static void	push_to_dest(t_stack **dest, t_stack *tmp)
+{
 	if (*dest)
 	{
 		tmp->next = *dest;
@@ -42,7 +47,14 @@ void push(t_stack **src, t_stack **dest)
 	*dest = tmp;
 }
 
+void	push(t_stack **src, t_stack **dest)
+{
+	t_stack	*tmp;
 
+	tmp = pop_from_src(src);
+	if (tmp != NULL)
+		push_to_dest(dest, tmp);
+}
 
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {

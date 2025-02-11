@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 09:52:16 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/07 08:06:40 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/11 09:40:08 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	stack_size(t_stack *stack)
 	size = 0;
 	first_pass = 1;
 	if (stack == NULL)
-		return 0;
+		return (0);
 	current = stack;
 	while (current != stack || first_pass)
 	{

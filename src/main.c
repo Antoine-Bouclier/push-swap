@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:03:50 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/07 12:17:30 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/11 09:14:35 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ int	main(int argc, char **argv)
 	if (stack_a == NULL)
 		return (ft_putstr("Error, empty stack!"), 0);
 	radix_sort_binary(&stack_a, &stack_b);
-	/* printf("Final state:\n");
-    print_stacks(stack_a, stack_b); */
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (1);

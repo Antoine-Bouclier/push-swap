@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:01:03 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/07 10:42:28 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/11 09:39:47 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	rotate(t_stack **stack)
 {
 	if (!*stack || (*stack)->next == *stack || !stack)
-		return;
+		return ;
 	*stack = (*stack)->next;
 }
 
@@ -37,4 +37,3 @@ void	rr(t_stack **stack_a, t_stack **stack_b)
 	rotate(stack_b);
 	ft_putstr("rr\n");
 }
-
