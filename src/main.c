@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:03:50 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/12 11:18:20 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/12 11:31:24 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-int	is_sorted(t_stack *stack)
+static int	is_sorted(t_stack *stack)
 {
 	t_stack	*current;
 	int		count;
