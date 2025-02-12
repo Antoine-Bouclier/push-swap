@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 08:31:23 by abouclie          #+#    #+#             */
-/*   Updated: 2025/01/30 09:26:58 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:41:07 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,45 +38,90 @@ t_stack *create_stack(int *values, int size)
 }
 void print_stack(t_stack *stack)
 {
-    while (stack)
+    t_stack *current;
+    int first_pass = 1;
+
+    if (!stack)
     {
-        printf("Value: %d, Index: %d\n", stack->value, stack->index);
-        stack = stack->next;
+        printf("Stack is empty\n\n");
+        return;
     }
-    printf("\n");
-}
-void print_stack_color(t_stack *stack, int highlight_all, int before_operation)
-{
-    while (stack)
+
+    current = stack;
+    while (current != stack || first_pass)
     {
-        if (highlight_all)
-        {
-            if (before_operation)
-                printf(YELLOW "Value: %d, Index: %d\n" RESET, stack->value, stack->index);
-            else
-                printf(GREEN "Value: %d, Index: %d\n" RESET, stack->value, stack->index);
-        }
-        else
-            printf("Value: %d, Index: %d\n", stack->value, stack->index);
-        stack = stack->next;
+        printf("Value: %d, Index: %d\n", current->value, current->index);
+        current = current->next;
+        first_pass = 0;
     }
     printf("\n");
 }
 
-int main()
+void print_stack_color(t_stack *stack, int highlight_all, int before_operation)
 {
+    t_stack *current;
+    int first_pass = 1;
+
+    if (!stack)
+    {
+        printf("Stack is empty\n\n");
+        return;
+    }
+
+    current = stack;
+    while (current != stack || first_pass)
+    {
+        if (highlight_all)
+        {
+            if (before_operation)
+                printf(YELLOW "Value: %d, Index: %d\n" RESET, current->value, current->index);
+            else
+                printf(GREEN "Value: %d, Index: %d\n" RESET, current->value, current->index);
+        }
+        else
+            printf("Value: %d, Index: %d\n", current->value, current->index);
+        
+        current = current->next;
+        first_pass = 0;
+    }
+    printf("\n");
+}
+
+
+int main(int argc, char **argv)
+{
+    t_stack *stack_a;
+    t_stack *stack_b;
+
+    // Vérifier s'il y a suffisamment d'arguments
+    if (argc < 2)
+    {
+        printf("Usage: %s <list of integers>\n", argv[0]);
+        return 1;
+    }
+
+    // Remplir stack_a avec les valeurs fournies
+    stack_a = fill_stack_values(argc, argv);
+
+    // Créer stack_b (vide pour l'instant)
+    stack_b = NULL;
+
     // Test ra
-    int values_a[] = {1, 2, 3, 4, 5};
-    t_stack *stack_a = create_stack(values_a, 5);
     printf("Stack A before ra:\n");
     print_stack_color(stack_a, 1, 1);  // Highlight all in yellow
     ra(&stack_a);
     printf("Stack A after ra:\n");
     print_stack_color(stack_a, 1, 0);  // Highlight all in green
 
-    // Test rb
+    // Remplir stack_b avec quelques valeurs pour les tests
     int values_b[] = {10, 20, 30, 40, 50};
-    t_stack *stack_b = create_stack(values_b, 5);
+    for (int i = 0; i < 5; i++)
+    {
+        stack_add_bottom(&stack_b, stack_new(values_b[i]));
+    }
+    index_stack(stack_b);
+
+    // Test rb
     printf("Stack B before rb:\n");
     print_stack_color(stack_b, 1, 1);  // Highlight all in yellow
     rb(&stack_b);
@@ -92,10 +137,8 @@ int main()
     print_stack_color(stack_a, 1, 0);  // Highlight all in green
     print_stack_color(stack_b, 1, 0);  // Highlight all in green
 
-    // N'oubliez pas de libérer la mémoire
-    // ...
-
     return 0;
 }
+
 
 // gcc -I./includes test/test_rotate.c src/rotate.c src/utils.c -o test_rotate
