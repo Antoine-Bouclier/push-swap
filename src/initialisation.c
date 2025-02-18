@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 09:48:56 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/11 09:14:06 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/18 09:51:19 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ t_stack	*fill_stack_values(int argc, char **argv)
 	{
 		nb = ft_atoi(argv[i]);
 		if (nb > INT_MAX || nb < INT_MIN)
-			exit_error(&stack_a, NULL);
+		{
+			free_stack(&stack_a);
+			return (stack_a);
+		}
 		if (i == 1)
 			stack_a = stack_new((int)nb);
 		else

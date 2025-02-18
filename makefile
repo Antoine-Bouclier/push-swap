@@ -6,11 +6,11 @@
 #    By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/04 09:35:52 by abouclie          #+#    #+#              #
-#    Updated: 2025/02/12 09:57:44 by abouclie         ###   ########.fr        #
+#    Updated: 2025/02/13 13:02:44 by abouclie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		= gcc
+CC		= cc
 CFLAGS	= -Wall -Werror -Wextra
 NAME	= push_swap
 
@@ -22,8 +22,7 @@ SRC		= main.c utils.c\
 		initialisation.c stack.c \
 		radix_sort.c radix_sort_utils.c small_sort.c \
 		find_index.c \
-		swap.c push.c rotate.c reverse_rotate.c \
-		print_stack.c
+		swap.c push.c rotate.c reverse_rotate.c 
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
 OBJ		= $(SRC:.c=.o)
 OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))

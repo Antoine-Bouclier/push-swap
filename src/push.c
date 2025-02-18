@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 12:06:35 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/11 09:36:45 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:01:00 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ void	push(t_stack **src, t_stack **dest)
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
 	push(stack_b, stack_a);
-	ft_putstr("pa\n");
+	ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	push(stack_a, stack_b);
-	ft_putstr("pb\n");
+	ft_putstr_fd("pb\n", 1);
 }

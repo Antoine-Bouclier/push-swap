@@ -6,13 +6,13 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:44:36 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/12 11:32:35 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/18 09:45:22 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_putstr(char *s)
+void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
@@ -21,38 +21,34 @@ void	ft_putstr(char *s)
 		return ;
 	while (s[i])
 	{
-		write(1, &s[i], 1);
+		write(fd, &s[i], 1);
 		i++;
 	}
 }
 
-int	ft_atoi(const char *nptr)
+long int	ft_atoi(const char *nptr)
 {
-	int					i;
-	int					sign;
-	unsigned long long	result;
+	long int	nb;
+	int			isneg;
+	int			i;
 
+	nb = 0;
+	isneg = 1;
 	i = 0;
-	sign = 1;
-	result = 0;
-	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
+	if (nptr[i] == '+')
 		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	else if (nptr[i] == '-')
 	{
-		if (nptr[i] == '-')
-			sign = -1;
+		isneg *= -1;
 		i++;
 	}
 	while (nptr[i] >= 48 && nptr[i] <= 57)
 	{
-		result = result * 10 + (nptr[i] - 48);
-		if (result > __LONG_LONG_MAX__ && sign == -1)
-			return (0);
-		else if (result > __LONG_LONG_MAX__)
-			return (-1);
+		nb = (nb * 10) + (nptr[i] - '0');
 		i++;
 	}
-	return ((int)result * sign);
+	nb *= isneg;
+	return (nb);
 }
 
 void	exit_error(t_stack **stack_a, t_stack **stack_b)
