@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:44:36 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/18 09:45:22 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/21 10:16:13 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
-long int	ft_atoi(const char *nptr)
+long int	ft_atoi(const char *nptr, int *error)
 {
 	long int	nb;
 	int			isneg;
@@ -45,18 +45,12 @@ long int	ft_atoi(const char *nptr)
 	while (nptr[i] >= 48 && nptr[i] <= 57)
 	{
 		nb = (nb * 10) + (nptr[i] - '0');
+		if ((nb > INT_MAX && isneg == 1) || nb < INT_MIN)
+			*error = 1;
 		i++;
 	}
 	nb *= isneg;
+	if (nb > INT_MAX || nb < INT_MIN)
+		*error = 1;
 	return (nb);
-}
-
-void	exit_error(t_stack **stack_a, t_stack **stack_b)
-{
-	if (stack_a == NULL || *stack_a != NULL)
-		free_stack(stack_a);
-	if (stack_b == NULL || *stack_b != NULL)
-		free_stack(stack_b);
-	write(2, "Error\n", 6);
-	exit (1);
 }

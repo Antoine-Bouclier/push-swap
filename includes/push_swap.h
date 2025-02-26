@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 13:35:17 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/18 09:48:12 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/21 10:16:32 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-#include <stdio.h>
 
 typedef struct s_stack
 {
@@ -50,8 +49,7 @@ int			ft_isdigit(int c);
 
 /* utils */
 void		ft_putstr_fd(char *s, int fd);
-long int	ft_atoi(const char *nptr);
-void		exit_error(t_stack **stack_a, t_stack **stack_b);
+long int	ft_atoi(const char *nptr, int *error);
 
 /* Initialisation */
 t_stack		*fill_stack_values(int ac, char **av);

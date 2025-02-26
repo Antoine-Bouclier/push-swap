@@ -6,7 +6,7 @@
 /*   By: abouclie <abouclie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 09:52:16 by abouclie          #+#    #+#             */
-/*   Updated: 2025/02/11 09:40:08 by abouclie         ###   ########.fr       */
+/*   Updated: 2025/02/26 12:40:57 by abouclie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ t_stack	*stack_new(int value)
 
 	new = malloc(sizeof * new);
 	if (!new)
-		return (NULL);
+	{
+		ft_putstr_fd("Error! Failure allocation malloc\n", 2);
+		exit(EXIT_FAILURE);
+	}
 	new->value = value;
 	new->index = -1;
 	new->next = new;
